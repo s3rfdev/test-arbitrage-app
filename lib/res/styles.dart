@@ -6,8 +6,10 @@ class Styles {
   static Color dividerColor = const Color.fromRGBO(33, 33, 33, 0.08);
   static Color splashColor = const Color.fromRGBO(211, 47, 39, 0.3);
   static Color selectedMenuItemColor = const Color.fromRGBO(211, 47, 39, 1.000);
+  static Color hoveColor = Colors.red;
   static Color linkColor = const Color.fromRGBO(4, 151, 234, 1.000);
-
+  static Color drawerBgColor = Colors.white;
+  static Color scaffoldBackgroundColor = const Color(0xFFEFEFEF);
   static TextStyle buttonTextStyle = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,

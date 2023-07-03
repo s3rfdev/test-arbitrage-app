@@ -29,10 +29,8 @@ class MenuItem extends StatelessWidget {
           style: Styles.drawerItem.copyWith(
               color: isSelected ? Styles.selectedMenuItemColor : null)),
       splashColor: Styles.splashColor,
-      // selectedTileColor: isSelected ? Styles.splashColor : null,
       selected: isSelected,
       onTap: () {
-        // context.read<ActivePageCubit>().emit(index);
         Get.to(goTo);
       },
     );

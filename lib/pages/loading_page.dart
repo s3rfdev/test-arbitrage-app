@@ -83,7 +83,7 @@ class _LoadingPageState extends State<LoadingPage> {
           const SizedBox(height: 30),
           AnimatedRotation(
             turns: turns,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             child: Image.asset(
               'assets/images/spinner.png',
             ),

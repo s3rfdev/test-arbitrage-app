@@ -1,6 +1,7 @@
 import 'package:bloc_cubit/bloc/check_info/check_info_bloc.dart';
 import 'package:bloc_cubit/bloc/cubit/active_page.dart';
 import 'package:bloc_cubit/pages/pages.dart';
+import 'package:bloc_cubit/res/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -36,8 +37,8 @@ class MyApp extends StatelessWidget {
           home: LoadingPage(),
           title: 'AzarkBet',
           theme: ThemeData(
-            scaffoldBackgroundColor: const Color(0xFFEFEFEF),
-            hoverColor: Colors.red,
+            scaffoldBackgroundColor: Styles.scaffoldBackgroundColor,
+            hoverColor: Styles.hoveColor,
           ),
         ),
       ),

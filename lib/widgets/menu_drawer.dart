@@ -13,9 +13,7 @@ class MenuDrawer extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 110),
       child: Drawer(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.blue,
-        surfaceTintColor: Colors.blue,
+        backgroundColor: Styles.drawerBgColor,
         width: MediaQuery.of(context).size.width / 1.15,
         child: Container(
           //  color: Colors.white,

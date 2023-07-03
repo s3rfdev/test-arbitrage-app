@@ -18,7 +18,6 @@ class CheckInfoBloc extends Bloc<CheckInfoEvent, CheckInfoState> {
     required this.repo,
   }) : super(const CheckInfoState.loading()) {
     on<CheckInfoEventFetch>((event, emit) async {
-      print('Start fetching');
       emit(const CheckInfoState.loading());
 
       var box = await Hive.openBox('PhoneInfoBox');
@@ -44,30 +43,30 @@ class CheckInfoBloc extends Bloc<CheckInfoEvent, CheckInfoState> {
           box.put('info', phoneInfo.toJson());
         }
 
-        // выполняем запрос на трекер
-        event.controller.loadRequest(repo.getKeitaroUri(
-          battery_above_threshold: phoneInfo.batteryLevel,
-          is_charging: phoneInfo.chargeStatus,
-          has_vpn: phoneInfo.hasVpn,
-        ));
+        // // выполняем запрос на трекер
+        // event.controller.loadRequest(repo.getKeitaroUri(
+        //   battery_above_threshold: phoneInfo.batteryLevel,
+        //   is_charging: phoneInfo.chargeStatus,
+        //   has_vpn: phoneInfo.hasVpn,
+        // ));
 
-        int time = 0;
-        String url = await event.controller.currentUrl() ?? '';
+        // int time = 0;
+        // String url = await event.controller.currentUrl() ?? '';
 
-        // проверяем  произошел ли редирект с кейтаро линка либо ждем 10 сек
-        while (time < 10 && (url == '' || url.contains(Config.keitaroUrl))) {
-          time++;
-          url = await event.controller.currentUrl() ?? '';
-          await Future.delayed(const Duration(seconds: 1));
-        }
+        // // проверяем  произошел ли редирект с кейтаро линка либо ждем 10 сек
+        // while (time < 10 && (url == '' || url.contains(Config.keitaroUrl))) {
+        //   time++;
+        //   url = await event.controller.currentUrl() ?? '';
+        //   await Future.delayed(const Duration(seconds: 1));
+        // }
 
-        print(url);
-        if (url.contains(Config.keitaroCheckFalseUrl)) {
-          emit(const CheckInfoState.loaded(checkResult: false));
-        } else {
-          emit(const CheckInfoState.loaded(checkResult: true));
-        }
-
+        // print(url);
+        // if (url.contains(Config.keitaroCheckFalseUrl)) {
+        //   emit(const CheckInfoState.loaded(checkResult: false));
+        // } else {
+        //   emit(const CheckInfoState.loaded(checkResult: true));
+        // }
+        emit(const CheckInfoState.loaded(checkResult: false));
         print('Fetech - Done');
       } catch (e) {
         print(e);
